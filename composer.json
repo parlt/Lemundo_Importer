@@ -1,0 +1,22 @@
+{
+    "name": "lemundo/module-importer",
+    "description": "product landing page data importer",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Pierre Arlt",
+            "email": "info@pierrearlt.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Lemundo\\Importer\\": ""
+        }
+    }
+}

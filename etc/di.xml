@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Lemundo\Importer\Api\ImportProcessorPoolInterface" type="Lemundo\Importer\Processor\ImportProcessorPool"/>
+    <preference for="Lemundo\Importer\Api\ImportServiceInterface" type="Lemundo\Importer\Service\ImportService"/>
+    <preference for="Lemundo\Importer\Api\ProductMapperPoolInterface" type="Lemundo\Importer\Mapper\ProductMapperPool"/>
+    <type name="Lemundo\Importer\Processor\ImportProcessorPool">
+        <arguments>
+            <argument name="importProcessors" xsi:type="array">
+                <item name="CategoryProcessor" xsi:type="object">Lemundo\Importer\Processor\Import\CategoryProcessor</item>
+                <item name="ProductProcessor" xsi:type="object">Lemundo\Importer\Processor\Import\ProductProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Lemundo\Importer\Processor\ImportProcessorPool">
+        <arguments>
+            <argument name="importProcessors" xsi:type="array">
+                <item name="ImageProcessor" xsi:type="object">Lemundo\Importer\Processor\Import\ImageProcessor</item>
+                <item name="CategoryProcessor" xsi:type="object">Lemundo\Importer\Processor\Import\CategoryProcessor</item>
+                <item name="ProductProcessor" xsi:type="object">Lemundo\Importer\Processor\Import\ProductProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Lemundo\Importer\Mapper\Virtual\ProductPreSaveMapperPool" type="Lemundo\Importer\Mapper\ProductMapperPool">
+        <arguments>
+            <argument name="mappers" xsi:type="array">
+                <item name="attributeMapper" xsi:type="object">Lemundo\Importer\Mapper\Product\PreSave\ProductAttributeMapper</item>
+                <item name="imagesMapper" xsi:type="object">Lemundo\Importer\Mapper\Product\PreSave\ProductImagesMapper</item>
+                <item name="taxMapper" xsi:type="object">Lemundo\Importer\Mapper\Product\PreSave\ProductTaxMapper</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Lemundo\Importer\Mapper\Virtual\ProductPostSaveMapperPool" type="Lemundo\Importer\Mapper\ProductMapperPool">
+        <arguments>
+            <argument name="mappers" xsi:type="array">
+                <item name="categoriesMapper" xsi:type="object">Lemundo\Importer\Mapper\Product\PostSave\ProductCategoriesMapper</item>
+                <item name="stockMapper" xsi:type="object">Lemundo\Importer\Mapper\Product\PostSave\ProductStockMapper</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Lemundo\Importer\Processor\Import\ProductProcessor">
+        <arguments>
+            <argument name="productPreSaveMapperPool" xsi:type="object">Lemundo\Importer\Mapper\Virtual\ProductPreSaveMapperPool</argument>
+            <argument name="productPostSaveMapperPool" xsi:type="object">Lemundo\Importer\Mapper\Virtual\ProductPostSaveMapperPool</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Lemundo_Importer_ImportJsonData" xsi:type="object">Lemundo\Importer\Console\Command\ImportJsonData</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

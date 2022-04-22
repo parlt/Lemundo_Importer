@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<system>
+    <tab id="lemundo" translate="label" sortOrder="10">
+        <label>Lemundo</label>
+    </tab>
+    <section id="lemundo_importer" translate="label" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+        <class>separator-top</class>
+        <label>Lemundo Importer</label>
+        <tab>lemundo</tab>
+        <resource>Lemundo_Importer::importer_config</resource>
+        <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>General</label>
+            <field id="image_url_prefix" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label><![CDATA[Image url prefix]]></label>
+                <comment><![CDATA[Get images from specific domain/ prefix.]]></comment>
+            </field>
+            <field id="json_start_index" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label><![CDATA[Json start index]]></label>
+                <comment><![CDATA[json start index.]]></comment>
+            </field>
+            <field id="landing_page_attributeset_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label><![CDATA[Landingpage attributeset name]]></label>
+                <comment><![CDATA[Default: Landingpage Products]]></comment>
+            </field>
+        </group>
+    </section>
+</system>
+</config>

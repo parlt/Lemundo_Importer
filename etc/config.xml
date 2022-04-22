@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <lemundo_importer>
+            <general>
+                <image_url_prefix>https://www.starlabgroup.com/media/catalog/product/</image_url_prefix>
+                <json_start_index>hits.hits</json_start_index>
+                <landing_page_attributeset_name>Landingpage Products</landing_page_attributeset_name>
+            </general>
+        </lemundo_importer>
+    </default>
+</config>

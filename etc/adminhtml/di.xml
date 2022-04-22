@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Category\DataProvider">
+        <plugin name="lemundo_catalog_magento_catalog_model_category_dataprovider_plugin" type="Lemundo\Importer\Plugin\Magento\Catalog\Model\Category\DataProviderPlugin" sortOrder="1" disabled="false"/>
+    </type>
+</config>
