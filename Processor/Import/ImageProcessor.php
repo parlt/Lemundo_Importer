@@ -119,6 +119,6 @@ class ImageProcessor implements ImportProcessorInterface
 
     private function trimImagePath(string $imagePath): string
     {
-        return ltrim($imagePath, '/');
+        return \ltrim($imagePath, '/');
     }
 }
