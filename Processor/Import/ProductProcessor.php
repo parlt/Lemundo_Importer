@@ -90,7 +90,7 @@ class ProductProcessor implements ImportProcessorInterface
         }
     }
 
-    public function getAttributeSetId(): string
+    private function getAttributeSetId(): string
     {
         return $this->attributeSetCollectionFactory
             ->create()
